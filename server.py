@@ -5,13 +5,15 @@ import os
 
 def hello_world(request):
     name = os.environ.get('NAME')
+    # name = "kc"
     if name == None or len(name) == 0:
         name = "world"
     message = "Hello, " + name + "!\n"
     return Response(message)
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT"))
+    # port = int(os.environ.get("PORT"))
+    port = 8080
     with Configurator() as config:
         config.add_route('hello', '/')
         config.add_view(hello_world, route_name='hello')
